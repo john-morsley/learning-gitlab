@@ -1,0 +1,12 @@
+stages:
+- terraform-verify
+- terraform-plan
+- terraform-apply
+
+terraform-plan:
+  stage: terraform-plan
+  image: hashicorp/terraform: 0.13.5
+
+terraform-plan:
+  stage: terraform-apply
+  image: hashicorp/terraform: 0.13.5
