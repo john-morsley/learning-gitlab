@@ -6,25 +6,25 @@ stages:
 
 terraform-verify:
   stage: terraform-verify
-  image: hashicorp/terraform: 0.13.5
+  image: hashicorp/terraform:0.13.5
   script:
     - cd ../terraform
     - terrform validate
 
 # terraform-plan:
 #   stage: terraform-plan
-#   image: hashicorp/terraform: 0.13.5
+#   image: hashicorp/terraform:0.13.5
 #   script:
 #   - terraform plan
 
 # terraform-apply-staging:
 #   stage: terraform-apply-staging
-#   image: hashicorp/terraform: 0.13.5
+#   image: hashicorp/terraform:0.13.5
 #   script:
 #   - terraform apply --auto-approve
   
 # terraform-apply-production:
 #   stage: terraform-apply-production
-#   image: hashicorp/terraform: 0.13.5
+#   image: hashicorp/terraform:0.13.5
 #   script:
 #   - terrasform apply --auto-approve
