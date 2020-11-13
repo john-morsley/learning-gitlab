@@ -7,7 +7,7 @@ stages:
 
 run-script:
   stage: run-script
-  image: alpine
+  image: ubuntu
   script:
   - bash pipeline/scripts/hello.sh
 
