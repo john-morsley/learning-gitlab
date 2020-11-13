@@ -1,6 +1,6 @@
 stages:
 - run-script
-- terraform-verify
+- terraform-validate
 # - terraform-plan
 # - terraform-apply-staging
 # - terraform-apply-production
@@ -11,10 +11,10 @@ run-script:
   script:
   - bash pipeline/scripts/hello.sh
 
-terraform-verify:
+terraform-validate:
   stage: terraform-verify
-  image: hashicorp/terraform:full
-  script:
+  image: hashicorp/terraform:full terraform validate
+  before_script:
   - ls -la
 #  - bash pipeline/scripts/hello.sh
 #  - cd terraform
