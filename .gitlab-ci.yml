@@ -18,10 +18,8 @@ terraform-validate:
 #  - ls -la
   script:
   - ls -la
-#  - terraform validate
-#  - bash pipeline/scripts/hello.sh
-#  - cd terraform
-#  - terraform validate
+  - cd terraform
+  - terraform validate
 
 # terraform-plan:
 #   stage: terraform-plan
