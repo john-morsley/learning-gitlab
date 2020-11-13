@@ -8,7 +8,7 @@ terraform-verify:
   stage: terraform-verify
   image: hashicorp/terraform:0.13.5
   script:
-    - cd ../terraform
+    - cd terraform
     - terrform validate
 
 # terraform-plan:
