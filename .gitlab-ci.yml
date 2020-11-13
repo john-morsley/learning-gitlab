@@ -13,10 +13,9 @@ run-script:
 
 terraform-verify:
   stage: terraform-verify
-  image: hashicorp/terraform:0.13.5
+  image: hashicorp/terraform:full
   script:
   - ls -la
-  
 #  - bash pipeline/scripts/hello.sh
 #  - cd terraform
 #  - terraform validate
