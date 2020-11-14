@@ -1,7 +1,7 @@
 stages:
 #- run-script
 #- show-variable
-- terraform-validate
+#- terraform-validate
 - terraform-plan
 # - terraform-apply-staging
 # - terraform-apply-production
@@ -18,31 +18,32 @@ stages:
 #   script:
 #   - bash pipeline/scripts/show-variable.sh
 
-terraform-validate:
-  stage: terraform-validate
-  image: johnmorsley/alpine-with-terraform
-  script:
-  - ls -la
-  - cd terraform
-  - export AWS_ACCESS_KEY_ID="$AWS_ACCESS_KEY_ID"
-  - export AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY"
-  - export AWS_PROFILE="default"
-#  - printenv
-  - terraform init -backend-config="token=$TERRAFORM_CLOUD_TOKEN"
-  - terraform validate
+# terraform-validate:
+#   stage: terraform-validate
+#   image: johnmorsley/alpine-with-terraform
+#   script:
+#   - ls -la
+#   - cd terraform
+#   - export AWS_ACCESS_KEY_ID="$AWS_ACCESS_KEY_ID"
+#   - export AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY"
+#   - export AWS_PROFILE="default"
+# #  - printenv
+#   - terraform init -backend-config="token=$TERRAFORM_CLOUD_TOKEN"
+#   - terraform validate
 
 terraform-plan:
+  variables:
+    AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
   stage: terraform-plan
   image: johnmorsley/alpine-with-terraform
   script:
   - ls -la
   - cd terraform
-  - export AWS_ACCESS_KEY_ID="$AWS_ACCESS_KEY_ID"
-  - export AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY"
-  - export AWS_PROFILE="default"
+  - aws --version
 #  - printenv
-  - terraform init -backend-config="token=$TERRAFORM_CLOUD_TOKEN"
-  - terraform plan
+#  - terraform init -backend-config="token=$TERRAFORM_CLOUD_TOKEN"
+#  - terraform plan
 
 # terraform-apply-staging:
 #   stage: terraform-apply-staging
