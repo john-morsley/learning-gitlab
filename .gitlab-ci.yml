@@ -1,6 +1,7 @@
 stages:
 - run-script
-- terraform-validate
+- show-variable
+#- terraform-validate
 # - terraform-plan
 # - terraform-apply-staging
 # - terraform-apply-production
@@ -11,16 +12,22 @@ run-script:
   script:
   - bash pipeline/scripts/hello.sh
 
-terraform-validate:
-  stage: terraform-validate
-  image: johnmorsley/alpine-with-terraform
+show-variable:
+  stage: show-variable
+  image: ubuntu
+  script:
+  - bash pipeline/scripts/show-variable.sh
+
+#terraform-validate:
+#  stage: terraform-validate
+#  image: johnmorsley/alpine-with-terraform
 #  before_script:
 #  - ls -la
-  script:
-  - ls -la
-  - cd terraform
-  - terraform init
-  - terraform validate
+#  script:
+#  - ls -la
+#  - cd terraform
+#  - terraform init
+#  - terraform validate
 
 # terraform-plan:
 #   stage: terraform-plan

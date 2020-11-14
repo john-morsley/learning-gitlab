@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo "TERRAFORM_CLOUD_TOKEN: " $TERRAFORM_CLOUD_TOKEN
