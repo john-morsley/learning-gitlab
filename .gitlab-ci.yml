@@ -26,9 +26,9 @@ terraform-validate:
   - cd terraform
   - export AWS_ACCESS_KEY_ID="$AWS_ACCESS_KEY_ID"
   - export AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY"
-  - printenv
-#  - terraform init -backend-config="token=$TERRAFORM_CLOUD_TOKEN"
-#  - terraform validate
+#  - printenv
+  - terraform init -backend-config="token=$TERRAFORM_CLOUD_TOKEN"
+  - terraform validate
 
 terraform-plan:
   stage: terraform-plan
@@ -38,9 +38,9 @@ terraform-plan:
   - cd terraform
   - export AWS_ACCESS_KEY_ID="$AWS_ACCESS_KEY_ID"
   - export AWS_SECRET_ACCESS_KEY="$AWS_SECRET_ACCESS_KEY"
-  - printenv
-#  - terraform init -backend-config="token=$TERRAFORM_CLOUD_TOKEN"
-#  - terraform plan
+#  - printenv
+  - terraform init -backend-config="token=$TERRAFORM_CLOUD_TOKEN"
+  - terraform plan
 
 # terraform-apply-staging:
 #   stage: terraform-apply-staging
