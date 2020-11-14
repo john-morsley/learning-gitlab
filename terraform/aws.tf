@@ -11,4 +11,6 @@
 # AWS_ACCESS_KEY
 # AWS_SECRET_ACCESS_KEY
 
-provider "aws" {}
+provider "aws" {
+    region = "eu-west-2"
+}
