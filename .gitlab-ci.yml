@@ -1,7 +1,7 @@
 stages:
 - run-script
 - show-variable
-#- terraform-validate
+- terraform-validate
 # - terraform-plan
 # - terraform-apply-staging
 # - terraform-apply-production
@@ -21,8 +21,6 @@ show-variable:
 terraform-validate:
   stage: terraform-validate
   image: johnmorsley/alpine-with-terraform
-#  before_script:
-#  - ls -la
   script:
   - ls -la
   - cd terraform
