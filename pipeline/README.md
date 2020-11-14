@@ -11,3 +11,8 @@ Description: token-for-gitlab-ci-cd-pipeline
 Hit 'Create API token'
 Copy the generated token.
 Hit 'Done'
+
+AWS_DEFAULT_REGION
+AWS_ACCESS_KEY
+AWS_SECRET_ACCESS_KEY
+
