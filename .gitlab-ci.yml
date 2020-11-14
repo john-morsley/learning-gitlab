@@ -2,7 +2,7 @@ stages:
 - run-script
 - show-variable
 - terraform-validate
-# - terraform-plan
+- terraform-plan
 # - terraform-apply-staging
 # - terraform-apply-production
 
@@ -30,11 +30,11 @@ terraform-validate:
   - terraform init -backend-config="token=$TERRAFORM_CLOUD_TOKEN"
   - terraform validate
 
-# terraform-plan:
-#   stage: terraform-plan
-#   image: hashicorp/terraform:0.13.5
-#   script:
-#   - terraform plan
+terraform-plan:
+  stage: terraform-plan
+  image: hashicorp/terraform:0.13.5
+  script:
+  - terraform plan
 
 # terraform-apply-staging:
 #   stage: terraform-apply-staging
