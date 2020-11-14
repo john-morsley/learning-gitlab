@@ -9,12 +9,12 @@ terraform {
 
   required_version = ">= 0.13"
   
-  // backend "remote" {
-  //   hostname     = "app.terraform.io"
-  //   organization = "john-morsley"
-  //   workspaces {
-  //     name = "learning-gitlab"
-  //   }
-  // }
+  backend "remote" {
+    hostname     = "app.terraform.io"
+    organization = "john-morsley"
+    workspaces {
+      name = "learning-gitlab"
+    }
+  }
   
 }

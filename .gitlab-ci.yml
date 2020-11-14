@@ -40,10 +40,8 @@ terraform-plan:
   script:
   - ls -la
   - cd terraform
-  - aws --version
-#  - printenv
-#  - terraform init -backend-config="token=$TERRAFORM_CLOUD_TOKEN"
-#  - terraform plan
+  - terraform init -backend-config="token=$TERRAFORM_CLOUD_TOKEN"
+  - terraform plan
 
 # terraform-apply-staging:
 #   stage: terraform-apply-staging
