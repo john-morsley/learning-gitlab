@@ -24,7 +24,7 @@ terraform-validate:
   script:
   - ls -la
   - cd terraform
-  - terraform init -backend-config="$TERRAFORM_CLOUD_TOKEN"
+  - terraform init -backend-config="token=$TERRAFORM_CLOUD_TOKEN"
   - terraform validate
 
 # terraform-plan:
