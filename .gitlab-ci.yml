@@ -4,7 +4,6 @@ stages:
 - terraform-validate
 - terraform-plan
 - terraform-apply
-# - terraform-apply-production
 
 # run-script:
 #   stage: run-script
@@ -21,9 +20,10 @@ stages:
 terraform-validate:
   stage: terraform-validate
   image: johnmorsley/alpine-with-terraform
-  variables:
-    AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
-    AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
+#  variables:
+#    AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
+#    AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
+#    AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
   script:
   - ls -la
   - cd terraform
@@ -34,6 +34,7 @@ terraform-plan:
   stage: terraform-plan
   image: johnmorsley/alpine-with-terraform
   variables:
+    AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
     AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
     AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
   script:
@@ -46,6 +47,7 @@ terraform-apply:
   stage: terraform-apply
   image: johnmorsley/alpine-with-terraform
   variables:
+    AWS_DEFAULT_REGION: $AWS_DEFAULT_REGION
     AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
     AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
   script:
@@ -53,15 +55,3 @@ terraform-apply:
   - cd terraform
   - terraform init -backend-config="token=$TERRAFORM_CLOUD_TOKEN"
   - terraform apply --auto-approve
-
-# terraform-apply-staging:
-#   stage: terraform-apply-staging
-#   image: hashicorp/terraform:0.13.5
-#   script:
-#   - terraform apply --auto-approve
-  
-# terraform-apply-production:
-#   stage: terraform-apply-production
-#   image: hashicorp/terraform:0.13.5
-#   script:
-#   - terrasform apply --auto-approve

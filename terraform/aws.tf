@@ -7,9 +7,8 @@
 
 # Requires the following environment variables:
 
+# AWS_DEFAULT_REGION
 # AWS_ACCESS_KEY_ID
 # AWS_SECRET_ACCESS_KEY
 
-provider "aws" {
-  region = "eu-west-2"
-}
+provider "aws" {}
