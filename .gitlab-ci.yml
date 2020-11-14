@@ -18,16 +18,17 @@ show-variable:
   script:
   - bash pipeline/scripts/show-variable.sh
 
-#terraform-validate:
-#  stage: terraform-validate
-#  image: johnmorsley/alpine-with-terraform
+terraform-validate:
+  stage: terraform-validate
+  image: johnmorsley/alpine-with-terraform
 #  before_script:
 #  - ls -la
-#  script:
-#  - ls -la
-#  - cd terraform
-#  - terraform init
-#  - terraform validate
+  script:
+  - ls -la
+  - cd terraform
+  - export TF_VAR_terraform_cloud_token=$TERRAFORM_CLOUD_TOKEN
+  - terraform init 
+  - terraform validate
 
 # terraform-plan:
 #   stage: terraform-plan

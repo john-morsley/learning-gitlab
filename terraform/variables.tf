@@ -5,6 +5,12 @@
 #        \  / (_| | |  | | (_| | |_) | |  __/\__ \
 #         \/ \__,_|_|  |_|\__,_|_.__/|_|\___||___/
 
+# TERRAFORM CLOUD
+
+variable "terraform_cloud_token" {
+  type = string
+}
+
 # VPC
 
 variable "name" {

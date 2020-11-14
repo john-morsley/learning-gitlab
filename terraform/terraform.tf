@@ -12,6 +12,7 @@ terraform {
   backend "remote" {
     hostname     = "app.terraform.io"
     organization = "john-morsley"
+    token        = var.terraform_cloud_token
     workspaces {
       name = "learning-gitlab"
     }
