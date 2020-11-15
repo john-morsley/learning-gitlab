@@ -26,7 +26,6 @@ terraform-validate:
 #    AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
 #    AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
   script:
-  - ls -la
   - cd terraform
   - terraform init -backend-config="token=$TERRAFORM_CLOUD_TOKEN"
   - terraform validate
@@ -39,7 +38,6 @@ terraform-plan:
     AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
     AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
   script:
-  - ls -la
   - cd terraform
   - terraform init -backend-config="token=$TERRAFORM_CLOUD_TOKEN"
   - terraform plan
@@ -52,7 +50,6 @@ terraform-apply:
     AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
     AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
   script:
-  - ls -la
   - cd terraform
   - terraform init -backend-config="token=$TERRAFORM_CLOUD_TOKEN"
   - terraform apply --auto-approve
@@ -65,7 +62,6 @@ terraform-destroy:
     AWS_ACCESS_KEY_ID: $AWS_ACCESS_KEY_ID
     AWS_SECRET_ACCESS_KEY: $AWS_SECRET_ACCESS_KEY
   script:
-  - ls -la
   - cd terraform
   - terraform init -backend-config="token=$TERRAFORM_CLOUD_TOKEN"
   - terraform destroy --auto-approve  
